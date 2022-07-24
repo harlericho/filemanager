@@ -6,7 +6,6 @@ class Connection
   private $pass = 'postgres';
   private $dbname = 'postgres_filemanager';
   private $port = '5432';
-  private $charset = 'utf8';
   private $driver = 'pgsql';
   private $dsn;
   private $options = [
@@ -17,7 +16,7 @@ class Connection
   private $pdo;
   public function __construct()
   {
-    $this->dsn = $this->driver . ':host=' . $this->host . ';port=' . $this->port . ';dbname=' . $this->dbname . ';charset=' . $this->charset;
+    $this->dsn = $this->driver . ':host=' . $this->host . ';port=' . $this->port . ';dbname=' . $this->dbname;
     $this->pdo = new PDO($this->dsn, $this->user, $this->pass, $this->options);
   }
   public function getPdo()
