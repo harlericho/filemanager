@@ -18,6 +18,56 @@ class Client extends Connection
       return $th->getMessage();
     }
   }
+  public function getAllClientActive()
+  {
+    try {
+      $sql = "SELECT * FROM tbl_user WHERE user_status = 1 AND user_rol_id = 2";
+      $stmt = $this->getPdo()->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetchAll();
+      return $result;
+    } catch (\Throwable $th) {
+      return $th->getMessage();
+    }
+  }
+  public function getAllClientInactive()
+  {
+    try {
+      $sql = "SELECT * FROM tbl_user WHERE user_status = 0 AND user_rol_id = 2";
+      $stmt = $this->getPdo()->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetchAll();
+      return $result;
+    } catch (\Throwable $th) {
+      return $th->getMessage();
+    }
+  }
+  public function statusClientInactive($id)
+  {
+    try {
+      $sql = "UPDATE tbl_user SET user_status = 0, user_updated_at = :user_updated_at  WHERE user_id = :id";
+      $stmt = $this->getPdo()->prepare($sql);
+      $stmt->bindParam(":id", $id);
+      $stmt->bindParam(":user_updated_at", date("Y-m-d H:i:s"));
+      $stmt->execute();
+      return true;
+    } catch (\Throwable $th) {
+      return $th->getMessage();
+    }
+  }
+  public function statusClientActive($id)
+  {
+    try {
+      $sql = "UPDATE tbl_user SET user_status = 1, user_updated_at = :user_updated_at  WHERE user_id = :id";
+      $stmt = $this->getPdo()->prepare($sql);
+      $stmt->bindParam(":id", $id);
+      $stmt->bindParam(":user_updated_at", date("Y-m-d H:i:s"));
+      $stmt->execute();
+      return true;
+    } catch (\Throwable $th) {
+      return $th->getMessage();
+    }
+  }
   public function getDataParams($data)
   {
     try {

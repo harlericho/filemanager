@@ -12,21 +12,17 @@
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Web File Manager</h1>
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Index</a></li>
-            </ol>
+          <div class="text-center">
+            <img src="/public/img/error.svg" style="max-height: 100px;" class="mb-3">
+            <h3 class="text-gray-800 font-weight-bold">Oopss!</h3>
+            <p class="lead text-gray-800 mx-auto">404 Page Not Found</p>
+            <a href="../admin/index.admin.php">&larr; Back to Dashboard</a>
           </div>
 
-          <?php include '../../templates/card.template.php'; ?>
-          <!--Row-->
+
           <!-- Aqui va el contenido -->
 
 
-          <?php include '../../templates/banner.template.php'; ?>
-
-          <?php include '../../templates/presentation.template.php'; ?>
           <?php include '../../templates/modal.template.php'; ?>
 
         </div>
@@ -39,7 +35,6 @@
   </div>
 
   <?php include "../../templates/footer.template.php" ?>
-  <script src="../../src/presentation.js"></script>
 </body>
 
 </html>

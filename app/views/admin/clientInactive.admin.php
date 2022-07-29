@@ -15,13 +15,28 @@
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Web File Manager</h1>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="./">Client</a></li>
             </ol>
           </div>
 
           <?php include '../../templates/card.template.php'; ?>
           <!--Row-->
           <!-- Aqui va el contenido -->
+          <!-- Row -->
+          <div class="row">
+            <!-- Datatables -->
+            <!-- DataTable with Hover -->
+            <div class="col-lg-12">
+              <div class="card mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Registration of client inactive</h6>
+                </div>
+                <div class="table-responsive p-3" id="tbody">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Row-->
 
 
           <?php include '../../templates/banner.template.php'; ?>
@@ -32,21 +47,14 @@
         <!---Container Fluid-->
       </div>
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>copyright &copy; - developed by
-              <b><a href="https://indrijunanda.gitlab.io/" target="_blank">harlericho</a></b>
-            </span>
-          </div>
-        </div>
-      </footer>
+      <?php include '../../templates/copyright.template.php'; ?>
       <!-- Footer -->
     </div>
   </div>
 
   <?php include "../../templates/footer.template.php" ?>
-  <script src="../../src/presentation.js"></script>
+  <!-- JavaScript CLient -->
+  <script src="../../src/admin/clientInactive.admin.js"></script>
 </body>
 
 </html>
