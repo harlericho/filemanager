@@ -2,7 +2,7 @@
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon">
-          <img src="/public/img/logo/logo.png">
+          <img src="../../../public/img/logo/logo.png">
         </div>
         <div class="sidebar-brand-text mx-3">File Manager</div>
       </a>

@@ -26,6 +26,7 @@
 
           <?php include '../../templates/banner.template.php'; ?>
 
+
           <?php include '../../templates/presentation.template.php'; ?>
           <?php include '../../templates/modal.template.php'; ?>
 
@@ -33,13 +34,14 @@
         <!---Container Fluid-->
       </div>
       <!-- Footer -->
+
       <?php include '../../templates/copyright.template.php'; ?>
       <!-- Footer -->
     </div>
   </div>
 
-  <?php include "../../templates/footer.template.php" ?>
-  <script src="../../src/presentation.js"></script>
+  <?php include '../../templates/footer.template.php'; ?>
+  <script src="../../src/admin/presentation.js"></script>
 </body>
 
 </html>

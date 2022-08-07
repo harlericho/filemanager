@@ -10,8 +10,9 @@
 </head>
 
 <body>
+  <!-- <h1>Hola</h1> -->
   <script>
-    window.location.href = "/app/views/client/login.client.php";
+    window.location.href = "./app/views/client/login.client.php";
   </script>
 
 </body>

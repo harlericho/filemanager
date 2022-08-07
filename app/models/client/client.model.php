@@ -1,5 +1,6 @@
 <?php
 require "../../config/connection.config.php";
+require "../../config/encryption.config.php";
 class Client extends Connection
 {
   public function __construct()
@@ -24,8 +25,23 @@ class Client extends Connection
       $sql = "SELECT * FROM tbl_user WHERE user_status = 1 AND user_rol_id = 2";
       $stmt = $this->getPdo()->prepare($sql);
       $stmt->execute();
-      $result = $stmt->fetchAll();
-      return $result;
+      while ($row = $stmt->fetch()) {
+        $result[] = array(
+          "user_id" => $row["user_id"],
+          "user_names" => $row["user_names"],
+          "user_telefono" => $row["user_telefono"],
+          "user_url_networking" => $row["user_url_networking"],
+          "user_photo" => $row["user_photo"],
+          "user_email" => $row["user_email"],
+          "user_password" => Encryption::desencryptacion($row["user_password"]),
+          "user_created_at" => $row["user_created_at"],
+          "user_updated_at" => $row["user_updated_at"]
+        );
+      }
+      if (!empty($result)) {
+        return $result;
+      }
+      return 0;
     } catch (\Throwable $th) {
       return $th->getMessage();
     }
@@ -36,8 +52,23 @@ class Client extends Connection
       $sql = "SELECT * FROM tbl_user WHERE user_status = 0 AND user_rol_id = 2";
       $stmt = $this->getPdo()->prepare($sql);
       $stmt->execute();
-      $result = $stmt->fetchAll();
-      return $result;
+      while ($row = $stmt->fetch()) {
+        $result[] = array(
+          "user_id" => $row["user_id"],
+          "user_names" => $row["user_names"],
+          "user_telefono" => $row["user_telefono"],
+          "user_url_networking" => $row["user_url_networking"],
+          "user_photo" => $row["user_photo"],
+          "user_email" => $row["user_email"],
+          "user_password" => Encryption::desencryptacion($row["user_password"]),
+          "user_created_at" => $row["user_created_at"],
+          "user_updated_at" => $row["user_updated_at"]
+        );
+      }
+      if (!empty($result)) {
+        return $result;
+      }
+      return 0;
     } catch (\Throwable $th) {
       return $th->getMessage();
     }
@@ -64,6 +95,18 @@ class Client extends Connection
       $stmt->bindParam(":user_updated_at", date("Y-m-d H:i:s"));
       $stmt->execute();
       return true;
+    } catch (\Throwable $th) {
+      return $th->getMessage();
+    }
+  }
+  public function countUsers()
+  {
+    try {
+      $sql = "SELECT COUNT(*) AS total FROM tbl_user";
+      $stmt = $this->getPdo()->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetch();
+      return $result;
     } catch (\Throwable $th) {
       return $th->getMessage();
     }

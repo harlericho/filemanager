@@ -5,15 +5,15 @@
       <div class="card-body">
         <div class="row align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-uppercase mb-1">Earnings (Monthly)</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+            <div class="text-xs font-weight-bold text-uppercase mb-1">Files</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">560</div>
             <div class="mt-2 mb-0 text-muted text-xs">
-              <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-              <span>Since last month</span>
+              <span class="text-primary mr-2"><i class="fa fa-arrow-up"></i> File list</span>
+              <span>Registration</span>
             </div>
           </div>
           <div class="col-auto">
-            <i class="fas fa-calendar fa-2x text-primary"></i>
+            <i class="fas fa-file fa-2x text-primary"></i>
           </div>
         </div>
       </div>
@@ -25,15 +25,15 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-uppercase mb-1">Sales</div>
+            <div class="text-xs font-weight-bold text-uppercase mb-1">Configuration</div>
             <div class="h5 mb-0 font-weight-bold text-gray-800">650</div>
             <div class="mt-2 mb-0 text-muted text-xs">
-              <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-              <span>Since last years</span>
+              <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> Settings list</span>
+              <span>Registration</span>
             </div>
           </div>
           <div class="col-auto">
-            <i class="fas fa-shopping-cart fa-2x text-success"></i>
+            <i class="fas fa-wrench fa-2x text-success"></i>
           </div>
         </div>
       </div>
@@ -45,11 +45,13 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-uppercase mb-1">New User</div>
-            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">366</div>
-            <div class="mt-2 mb-0 text-muted text-xs">
-              <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 20.4%</span>
-              <span>Since last month</span>
+            <div class="text-xs font-weight-bold text-uppercase mb-1">Users</div>
+            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+              <div id="count-client"></div>
+            </div>
+            <div class=" mt-2 mb-0 text-muted text-xs">
+              <span class="text-info mr-2"><i class="fas fa-arrow-up"></i> User list</span>
+              <span>Registration</span>
             </div>
           </div>
           <div class="col-auto">
@@ -65,15 +67,15 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-uppercase mb-1">Pending Requests</div>
+            <div class="text-xs font-weight-bold text-uppercase mb-1">Rols</div>
             <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
             <div class="mt-2 mb-0 text-muted text-xs">
-              <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
-              <span>Since yesterday</span>
+              <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> Rol list</span>
+              <span>Registration</span>
             </div>
           </div>
           <div class="col-auto">
-            <i class="fas fa-comments fa-2x text-warning"></i>
+            <i class="fas fa-user-tag fa-2x text-warning"></i>
           </div>
         </div>
       </div>

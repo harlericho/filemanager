@@ -11,7 +11,7 @@ const app = new (function () {
           html =
             "<table class='table align-items-center table-flush table-hover' id='dataTableHover'>";
           html +=
-            "<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><i class='fas fa-check'></i> List of active clients</div>";
+            "<div class='container'><div class='row justify-content-center'><div class='col-xl-6 col-md-6 mb-4 alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><i class='fas fa-check'></i> List of active clients</div></div></div>";
           html += "<thead class='thead-light'>";
           html += "<tr>";
           html +=
@@ -49,7 +49,7 @@ const app = new (function () {
             html +=
               "<td><b small style='color:violet' >" +
               item.user_email +
-              "</b> <sub small style='color:gray' >" +
+              "</b><br/> <sub small style='color:gray' >" +
               item.user_password +
               "</sub> </td>";
             html +=
@@ -67,7 +67,7 @@ const app = new (function () {
           this.tbody.innerHTML = html;
         } else {
           this.tbody.innerHTML =
-            "<div class='alert alert-warning' role='alert'><i class='fas fa-exclamation-triangle'></i> No data found</div>";
+            "<div class='container'><div class='row justify-content-center'><div class='col-xl-6 col-md-6 mb-4 alert alert-warning' role='alert'><i class='fas fa-exclamation-triangle'></i> No data found</div></div></div>";
         }
         $(document).ready(function () {
           $("#dataTable").DataTable(); // ID From dataTable
