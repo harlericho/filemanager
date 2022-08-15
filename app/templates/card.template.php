@@ -6,7 +6,9 @@
         <div class="row align-items-center">
           <div class="col mr-2">
             <div class="text-xs font-weight-bold text-uppercase mb-1">Files</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">560</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">
+              <div id="count-file"></div>
+            </div>
             <div class="mt-2 mb-0 text-muted text-xs">
               <span class="text-primary mr-2"><i class="fa fa-arrow-up"></i> File list</span>
               <span>Registration</span>
@@ -68,7 +70,9 @@
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
             <div class="text-xs font-weight-bold text-uppercase mb-1">Rols</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">
+              <div id="count-rol"></div>
+            </div>
             <div class="mt-2 mb-0 text-muted text-xs">
               <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> Rol list</span>
               <span>Registration</span>
@@ -83,3 +87,4 @@
   </div>
 
 </div>
+<script src="../../src/admin/card.admin.js"></script>

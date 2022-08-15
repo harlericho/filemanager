@@ -18,4 +18,16 @@ class Rol extends Connection
       return $th->getMessage();
     }
   }
+  public function countRol()
+  {
+    try {
+      $sql = "SELECT COUNT(*) AS total FROM tbl_rol";
+      $stmt = $this->getPdo()->prepare($sql);
+      $stmt->execute();
+      $result = $stmt->fetch();
+      return $result;
+    } catch (\Throwable $th) {
+      return $th->getMessage();
+    }
+  }
 }

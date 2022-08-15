@@ -25,7 +25,7 @@
 
           <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h6 class="m-0 font-weight-bold text-primary">Form User</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Form Administration</h6>
             </div>
             <div class="card-body">
               <form action="javascript:void(0);" method="POST">
@@ -59,7 +59,7 @@
                   <label for="password">Password</label>
                   <input type="password" class="form-control" id="password" placeholder="Password" disabled>
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-upload"></i> Update</button>
+                <button type="submit" class="btn btn-info btn-sm"><i class="fas fa-marker"></i> Update</button>
               </form>
             </div>
           </div>
@@ -78,7 +78,6 @@
   </div>
 
   <?php include "../../templates/footer.template.php" ?>
-  <script src="../../src/presentation.js"></script>
 </body>
 
 </html>

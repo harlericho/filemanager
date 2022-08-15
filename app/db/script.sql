@@ -12,7 +12,7 @@ CREATE TABLE "tbl_user"
 (
     "user_id" SERIAL PRIMARY KEY,
     "user_names" VARCHAR(100) NOT NULL,
-    "user_telefono" VARCHAR(10) NULL,
+    "user_phone" VARCHAR(10) NULL,
     "user_url_networking" VARCHAR(50) NULL,
     "user_photo" VARCHAR(255) NULL,
     "user_email" VARCHAR(150) NOT NULL UNIQUE,
@@ -38,4 +38,12 @@ CREATE TABLE "tbl_file"
 ALTER TABLE "tbl_user" ADD CONSTRAINT "fk_user_rol" FOREIGN KEY ("user_rol_id") REFERENCES "tbl_rol" ("rol_id") ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE "tbl_file" ADD CONSTRAINT "fk_file_user" FOREIGN KEY ("file_user_id") REFERENCES "tbl_user" ("user_id") ON DELETE CASCADE ON UPDATE CASCADE;
 
+-- rol
+INSERT INTO "tbl_rol" ("rol_id", "rol_description") VALUES (1, 'ADMINISTRATOR');
+INSERT INTO "tbl_rol" ("rol_id", "rol_description") VALUES (2, 'CLIENT');
+--user admin
+INSERT INTO "tbl_user" ("user_names","user_email", "user_password", "user_rol_id") VALUES ('Administrator', 'admin@admin.com', 'QTgyTDFRM1JNS2JxRVVVak5NNVZoUT09', 1);
+
+
+-- INSERT INTO "tbl_file" ("file_id", "file_name", "file_path", "file_size", "file_type", "file_user_id") VALUES (1, 'file1.jpg', 'C:/file1.jpg', 100, 'image/jpeg', 1);
 -- END POSTGRESQL

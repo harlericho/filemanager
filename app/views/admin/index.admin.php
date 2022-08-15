@@ -25,9 +25,6 @@
 
 
           <?php include '../../templates/banner.template.php'; ?>
-
-
-          <?php include '../../templates/presentation.template.php'; ?>
           <?php include '../../templates/modal.template.php'; ?>
 
         </div>
@@ -41,7 +38,6 @@
   </div>
 
   <?php include '../../templates/footer.template.php'; ?>
-  <script src="../../src/admin/presentation.js"></script>
 </body>
 
 </html>

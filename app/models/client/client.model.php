@@ -22,14 +22,14 @@ class Client extends Connection
   public function getAllClientActive()
   {
     try {
-      $sql = "SELECT * FROM tbl_user WHERE user_status = 1 AND user_rol_id = 2";
+      $sql = "SELECT * FROM tbl_user u JOIN tbl_rol r on u.user_rol_id=r.rol_id WHERE u.user_status = 1 AND  r.rol_description LIKE 'C%' OR r.rol_description LIKE 'c%'";
       $stmt = $this->getPdo()->prepare($sql);
       $stmt->execute();
       while ($row = $stmt->fetch()) {
         $result[] = array(
           "user_id" => $row["user_id"],
           "user_names" => $row["user_names"],
-          "user_telefono" => $row["user_telefono"],
+          "user_phone" => $row["user_phone"],
           "user_url_networking" => $row["user_url_networking"],
           "user_photo" => $row["user_photo"],
           "user_email" => $row["user_email"],
@@ -49,14 +49,14 @@ class Client extends Connection
   public function getAllClientInactive()
   {
     try {
-      $sql = "SELECT * FROM tbl_user WHERE user_status = 0 AND user_rol_id = 2";
+      $sql = "SELECT * FROM tbl_user u JOIN tbl_rol r on u.user_rol_id=r.rol_id WHERE u.user_status = 0 AND  r.rol_description LIKE 'C%' OR r.rol_description LIKE 'c%'";
       $stmt = $this->getPdo()->prepare($sql);
       $stmt->execute();
       while ($row = $stmt->fetch()) {
         $result[] = array(
           "user_id" => $row["user_id"],
           "user_names" => $row["user_names"],
-          "user_telefono" => $row["user_telefono"],
+          "user_phone" => $row["user_phone"],
           "user_url_networking" => $row["user_url_networking"],
           "user_photo" => $row["user_photo"],
           "user_email" => $row["user_email"],
@@ -111,15 +111,42 @@ class Client extends Connection
       return $th->getMessage();
     }
   }
-  public function getDataParams($data)
+  public function getDataParamsClient($data)
   {
     try {
       $sql = "SELECT * FROM tbl_user WHERE user_email = :user_email AND user_password = :user_password AND user_rol_id = 2";
       $stmt = $this->getPdo()->prepare($sql);
       $stmt->bindParam(':user_email', $data['user_email']);
-      $stmt->bindParam(':user_password', $data['user_password']);
+      $stmt->bindParam(':user_password', Encryption::encryptacion($data['user_password']));
       $stmt->execute();
       $result = $stmt->fetch();
+      return $result;
+    } catch (\Throwable $th) {
+      return $th->getMessage();
+    }
+  }
+  public function getDataParamsAdmin($data)
+  {
+    try {
+      $sql = "SELECT * FROM tbl_user WHERE user_email = :user_email AND user_password = :user_password AND user_rol_id = 1";
+      $stmt = $this->getPdo()->prepare($sql);
+      $stmt->bindParam(':user_email', $data['user_email']);
+      $stmt->bindParam(':user_password', Encryption::encryptacion($data['user_password']));
+      $stmt->execute();
+      $result = $stmt->fetch();
+      return $result;
+    } catch (\Throwable $th) {
+      return $th->getMessage();
+    }
+  }
+  public function getDataUser($email)
+  {
+    try {
+      $sql = "SELECT * FROM tbl_user u JOIN tbl_rol r on u.user_rol_id=r.rol_id WHERE u.user_email = :user_email";
+      $stmt = $this->getPdo()->prepare($sql);
+      $stmt->bindParam(':user_email', $email);
+      $stmt->execute();
+      $result = $stmt->fetchAll();
       return $result;
     } catch (\Throwable $th) {
       return $th->getMessage();
@@ -145,7 +172,7 @@ class Client extends Connection
       $stmt = $this->getPdo()->prepare($sql);
       $stmt->bindParam(":user_names", $data['user_names']);
       $stmt->bindParam(":user_email", $data['user_email']);
-      $stmt->bindParam(":user_password", $data['user_password']);
+      $stmt->bindParam(":user_password", Encryption::encryptacion($data['user_password']));
       $stmt->bindParam(":user_rol_id", $data['user_rol_id']);
       $stmt->execute();
       return true;

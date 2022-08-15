@@ -1,10 +1,10 @@
 <?php
 require "../../models/client/client.model.php";
-require "../../config/encryption.config.php";
+// require "../../config/encryption.config.php";
 $arrayName = array(
   'user_names' => $_POST['names'],
   'user_email' => $_POST['email'],
-  'user_password' => Encryption::encryptacion($_POST['passwordConfirm']),
+  'user_password' => $_POST['passwordConfirm'],
   'user_rol_id' => 2
 );
 $client = new Client();

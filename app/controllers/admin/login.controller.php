@@ -6,7 +6,7 @@ $arrayName = array(
   'user_password' => $_POST['password']
 );
 $client = new Client();
-$result = $client->getDataParamsClient($arrayName);
+$result = $client->getDataParamsAdmin($arrayName);
 if ($result) {
   $_SESSION['user_email'] = $result['user_email'];
   $_SESSION['user_id'] = $result['user_id'];

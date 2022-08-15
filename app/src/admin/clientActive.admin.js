@@ -15,19 +15,18 @@ const app = new (function () {
           html += "<thead class='thead-light'>";
           html += "<tr>";
           html +=
-            "<th>#</th><th>Photo</th><th>Names</th><th>Information</th><th>Accounts</th><th>Dates</th><th>Options</th>";
+            "<th>Photo</th><th>Names</th><th>Information</th><th>Accounts</th><th>Dates</th><th>Options</th>";
           html += "</tr>";
           html += "</thead>";
           html += "<tfoot>";
           html += "<tr>";
           html +=
-            "<th>#</th><th>Photo</th><th>Names</th><th>Information</th><th>Accounts</th><th>Dates</th><th>Options</th>";
+            "<th>Photo</th><th>Names</th><th>Information</th><th>Accounts</th><th>Dates</th><th>Options</th>";
           html += "</tr>";
           html += "</tfoot>";
           html += "<tbody>";
           data.forEach((item) => {
             html += "<tr>";
-            html += "<td>" + item.user_id + "</td>";
             if (item.user_photo == null) {
               html +=
                 "<td><img src='../../uploads/img/sin-foto.png' width='50' height='50'></td>";
@@ -42,7 +41,7 @@ const app = new (function () {
             html += "<td><strong>" + item.user_names + "</strong></td>";
             html +=
               "<td><p>" +
-              item.user_telefono +
+              item.user_phone +
               "</p> <u>" +
               item.user_url_networking +
               "</u></td>";
@@ -55,7 +54,7 @@ const app = new (function () {
             html +=
               "<td><small style='color:blue' >" +
               item.user_created_at +
-              "</small> <small style='color:green' >" +
+              "</small><br/> <small style='color:green' >" +
               item.user_updated_at +
               "</small></td>";
             html +=

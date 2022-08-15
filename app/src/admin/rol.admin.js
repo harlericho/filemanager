@@ -14,20 +14,17 @@ const app = new (function () {
             "<div class='container'><div class='row justify-content-center'><div class='col-xl-6 col-md-6 mb-4 alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><i class='fas fa-check'></i> List of roles</div></div></div>";
           html += "<thead class='thead-light'>";
           html += "<tr>";
-          html +=
-            "<th>#</th><th>Description</th><th>Status</th><th>Options</th>";
+          html += "<th>Description</th><th>Status</th>";
           html += "</tr>";
           html += "</thead>";
           html += "<tfoot>";
           html += "<tr>";
-          html +=
-            "<th>#</th><th>Description</th><th>Status</th><th>Options</th>";
+          html += "<th>Description</th><th>Status</th>";
           html += "</tr>";
           html += "</tfoot>";
           html += "<tbody>";
           data.forEach((item) => {
             html += "<tr>";
-            html += "<td>" + item.rol_id + "</td>";
             html += "<td>" + item.rol_description + "</td>";
             if (item.rol_status === 1) {
               html +=
@@ -36,12 +33,6 @@ const app = new (function () {
               html +=
                 "<td><span class='badge badge-danger'>Inactive</span></td>";
             }
-            html +=
-              "<td><button class='btn btn-primary btn-sm m-1' title='Edit' onclick='app.edit(" +
-              item.rol_id +
-              ")'><i class='fas fa-pen'></i></button><button class='btn btn-danger btn-sm' title='Remove' onclick='app.delete(" +
-              item.rol_id +
-              ")'><i class='fas fa-trash'></i></button></td>";
           });
           html += "</tr></tbody></table>";
           this.tbody.innerHTML = html;
