@@ -19,6 +19,34 @@ class Client extends Connection
       return $th->getMessage();
     }
   }
+  public function getAllId($id)
+  {
+    try {
+      $sql = "SELECT * FROM tbl_user u
+      JOIN tbl_rol r on u.user_rol_id=r.rol_id
+      WHERE u.user_status = 1 AND u.user_id =:user_id";
+      $stmt = $this->getPdo()->prepare($sql);
+      $stmt->bindParam(":user_id", $id);
+      $stmt->execute();
+      while ($row = $stmt->fetch()) {
+        $result[] = array(
+          "user_id" => $row["user_id"],
+          "user_names" => $row["user_names"],
+          "user_phone" => $row["user_phone"],
+          "user_url_networking" => $row["user_url_networking"],
+          "user_photo" => $row["user_photo"],
+          "user_email" => $row["user_email"],
+          "user_password" => Encryption::desencryptacion($row["user_password"])
+        );
+      }
+      if (!empty($result)) {
+        return $result;
+      }
+      return 0;
+    } catch (\Throwable $th) {
+      return $th->getMessage();
+    }
+  }
   public function getAllClientActive()
   {
     try {
@@ -46,6 +74,7 @@ class Client extends Connection
       return $th->getMessage();
     }
   }
+
   public function getAllClientInactive()
   {
     try {
@@ -142,7 +171,7 @@ class Client extends Connection
   public function getDataUser($email)
   {
     try {
-      $sql = "SELECT * FROM tbl_user u JOIN tbl_rol r on u.user_rol_id=r.rol_id WHERE u.user_email = :user_email";
+      $sql = "SELECT * FROM tbl_user u JOIN tbl_rol r on u.user_rol_id=r.rol_id WHERE u.user_email =:user_email";
       $stmt = $this->getPdo()->prepare($sql);
       $stmt->bindParam(':user_email', $email);
       $stmt->execute();

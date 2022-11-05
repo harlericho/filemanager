@@ -47,6 +47,9 @@
                   <div class="text-center">
                     Copyright: @harlericho 2022
                   </div>
+                  <div class="text-center p-3">
+                    <a class="font-weight-bold small text-primary" href="../admin/login.admin.php">Administrator mode!</a>
+                  </div>
                 </div>
               </div>
             </div>

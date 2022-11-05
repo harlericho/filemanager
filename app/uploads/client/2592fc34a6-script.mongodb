@@ -1,0 +1,74 @@
+
+// variables
+const database = 'mongodb';
+const collection = 'tasks';
+
+// Crear a nueva database.
+use(database);
+
+// Crear una nueva collection.
+//db.createCollection(collection);
+
+// confirmar la collection creada
+//show collections
+
+// crear los datos de la collection  INSERT
+// db.tasks.insert({
+//   "title": "programming in php",
+//   "description": "programming",
+//   "autor": "charlie"
+// }
+// )
+
+// mostrar los datos de la collection SELECT
+db.tasks.find()
+// db.tasks.find().pretty()
+// mostar los datos de la collection de acuerdo al limite SELECT
+//db.tasks.find().limit(2)
+
+// mostrar el total de la collection creada SELECT
+// db.tasks.count()
+
+//mostrar los datos de la collection por medio de un metodo SELECT
+//db.tasks.find().forEach(i=> print(i.autor))
+
+// mostrar un dato de la collection SELECT ID REFERENCIA
+//db.tasks.find({title:"programming in php"})
+
+// mostrar un datos de la collection solo con varios campos SELECT
+// db.tasks.find({title:"programming in laravel"},{autor:1, _id:0})
+
+// mostrar los datos de la collection de forma alfabeticamente SELECT
+//db.tasks.find({autor:"charlie chok"}).sort({title:1})
+
+// crear mas datos a la collection INSERT
+// db.tasks.insert([
+//   {
+//     "title": "programming in c#",
+//     "description": "programming",
+//     "autor": "charlie chok"
+//   },
+//   {
+//     "title": "programming in angular",
+//     "description": "programming",
+//     "autor": "charlie chok"
+//   },
+//   {
+//     "title": "programming in python",
+//     "description": "programming",
+//     "autor": "charlie chok"
+//   }
+// ]
+// )
+
+// actualizar un dato de la collections UPDATE
+// db.tasks.update({title:"programming in php"},{
+// $set: {
+//   title: "programming in laravel"
+// }})
+
+// eliminar un dato de la collection DELETE
+//db.tasks.remove({autor:"charlie"})
+
+// eliminar todo los datos de la collection DELETE
+//db.tasks.remove({})

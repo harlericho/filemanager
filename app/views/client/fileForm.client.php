@@ -28,7 +28,7 @@
             </div>
             <div class="card-body">
               <form action="javascript:void(0);" method="POST" onsubmit="app.registerFile()">
-                <input type="text" id="id" value="<?php echo $_SESSION['user_id'] ?>">
+                <input type="hidden" id="id" value="<?php echo $_SESSION['user_id'] ?>">
                 <div class="form-group">
                   <label for="phone">File</label>
                   <input type="file" class="form-control" id="file" placeholder="File" autofocus required>

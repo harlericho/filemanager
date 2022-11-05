@@ -1,5 +1,6 @@
 <?php
-require "../../models/client/client.model.php";
+
+// require "../../models/client/client.model.php";
 session_start();
 if (!isset($_SESSION['user_email'])) {
   header("Location: ../../../");
@@ -7,6 +8,7 @@ if (!isset($_SESSION['user_email'])) {
 }
 $client = new Client();
 $result = $client->getDataUser($_SESSION['user_email']);
+// var_dump($result);
 foreach ($result as $row) {
   $user_id = $row["user_id"];
   $user_names = $row["user_names"];
@@ -15,6 +17,7 @@ foreach ($result as $row) {
   $user_rol = $row["rol_description"];
   $user_rol_id = $row["user_rol_id"];
 }
+
 ?>
 <nav class="navbar navbar-expand navbar-light bg-dark topbar mb-4 static-top">
   <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">

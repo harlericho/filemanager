@@ -81,7 +81,20 @@ class File extends Connection
       return $th->getMessage();
     }
   }
-  public function countFile()
+  public function countFile($id)
+  {
+    try {
+      $sql = "SELECT COUNT(*) AS total FROM tbl_file WHERE file_user_id=:file_user_id";
+      $stmt = $this->getPdo()->prepare($sql);
+      $stmt->bindParam(":file_user_id", $id);
+      $stmt->execute();
+      $result = $stmt->fetch();
+      return $result;
+    } catch (\Throwable $th) {
+      return $th->getMessage();
+    }
+  }
+  public function countFileAdmin()
   {
     try {
       $sql = "SELECT COUNT(*) AS total FROM tbl_file";

@@ -28,14 +28,14 @@
               <h6 class="m-0 font-weight-bold text-primary">Form Client</h6>
             </div>
             <div class="card-body">
-              <form action="javascript:void(0);" method="POST">
+              <form action="javascript:void(0);" method="POST" onsubmit="app.updateData()">
                 <div class="form-group">
                   <label for="names">Names</label>
                   <input type="text" class="form-control" id="names" placeholder="Names" autofocus required>
                 </div>
                 <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="text" class="form-control" id="phone" placeholder="Phone">
+                  <input type="text" class="form-control" id="phone" placeholder="Phone" required>
                 </div>
                 <div class="form-group">
                   <label for="image">Image</label>
@@ -47,17 +47,17 @@
                 </div>
                 <div class="form-group">
                   <label for="networking">Networking Url</label>
-                  <input type="url" class="form-control" id="Networking" placeholder="Networking">
+                  <input type="url" class="form-control" id="networking" placeholder="Networking" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" disabled>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" readonly>
                   <small id="emailHelp" class="form-text text-muted">We'll never share your
                     email with anyone else.</small>
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password" placeholder="Password" disabled>
+                  <input type="text" class="form-control" id="password" placeholder="Password" readonly>
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-marker"></i> Update</button>
               </form>
@@ -78,6 +78,7 @@
   </div>
 
   <?php include "../../templates/footer.template.php" ?>
+  <script src="../../src/client/profile.client.js"></script>
 </body>
 
 </html>

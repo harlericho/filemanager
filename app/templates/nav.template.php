@@ -1,11 +1,16 @@
 <?php
 require "../../models/client/client.model.php";
+session_start();
+if (!isset($_SESSION['user_email'])) {
+  header("Location: ../../../");
+  exit();
+}
 $client = new Client();
 $result = $client->getDataUser($_SESSION['user_email']);
-// if ($result['user_rol_id'] != 2) {
-//   header("Location: ../../views/admin/login.admin.php");
-// }
-// 
+// var_dump($result[0]["user_rol_id"]);
+if ($result[0]['user_rol_id'] == 2 || $result[0]['user_rol_id'] == NULL) {
+  header("Location: ../../views/admin/login.admin.php");
+}
 ?>
 <!-- Sidebar Admin-->
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
