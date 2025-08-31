@@ -146,7 +146,8 @@ class Client extends Connection
       $sql = "SELECT * FROM tbl_user WHERE user_email = :user_email AND user_password = :user_password AND user_rol_id = 2";
       $stmt = $this->getPdo()->prepare($sql);
       $stmt->bindParam(':user_email', $data['user_email']);
-      $stmt->bindParam(':user_password', Encryption::encryptacion($data['user_password']));
+      $user_password = Encryption::encryptacion($data['user_password']);
+      $stmt->bindParam(':user_password', $user_password);
       $stmt->execute();
       $result = $stmt->fetch();
       return $result;
@@ -160,7 +161,8 @@ class Client extends Connection
       $sql = "SELECT * FROM tbl_user WHERE user_email = :user_email AND user_password = :user_password AND user_rol_id = 1";
       $stmt = $this->getPdo()->prepare($sql);
       $stmt->bindParam(':user_email', $data['user_email']);
-      $stmt->bindParam(':user_password', Encryption::encryptacion($data['user_password']));
+      $user_password = Encryption::encryptacion($data['user_password']);
+      $stmt->bindParam(':user_password', $user_password);
       $stmt->execute();
       $result = $stmt->fetch();
       return $result;
@@ -201,7 +203,8 @@ class Client extends Connection
       $stmt = $this->getPdo()->prepare($sql);
       $stmt->bindParam(":user_names", $data['user_names']);
       $stmt->bindParam(":user_email", $data['user_email']);
-      $stmt->bindParam(":user_password", Encryption::encryptacion($data['user_password']));
+      $user_password = Encryption::encryptacion($data['user_password']);
+      $stmt->bindParam(":user_password", $user_password);
       $stmt->bindParam(":user_rol_id", $data['user_rol_id']);
       $stmt->execute();
       return true;

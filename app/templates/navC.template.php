@@ -1,6 +1,8 @@
 <?php
 require "../../models/client/client.model.php";
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 if (!isset($_SESSION['user_email'])) {
   header("Location: ../../../");
   exit();

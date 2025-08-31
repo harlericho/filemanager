@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . '/app/config/session.config.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -14,7 +17,6 @@
   <script>
     window.location.href = "./app/views/client/login.client.php";
   </script>
-
 </body>
 
 </html>

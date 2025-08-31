@@ -1,13 +1,16 @@
-<?php include "../../templates/header.template.php" ?>
+<?php
+require_once "../../config/session.config.php";
+include_once "../../templates/header.template.php";
+?>
 
 <body id="page-top">
   <div id="wrapper">
-    <?php include '../../templates/navC.template.php'; ?>
+    <?php include_once '../../templates/navC.template.php'; ?>
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
         <!-- TopBar -->
-        <?php include '../../templates/topbar.template.php'; ?>
+        <?php include_once '../../templates/topbar.template.php'; ?>
         <!-- Topbar -->
 
         <!-- Container Fluid-->
@@ -19,25 +22,25 @@
             </ol>
           </div>
 
-          <?php include '../../templates/card.template.php'; ?>
+          <?php include_once '../../templates/card.template.php'; ?>
           <!--Row-->
           <!-- Aqui va el contenido -->
 
 
-          <?php include '../../templates/banner.template.php'; ?>
-          <?php include '../../templates/presentation.template.php'; ?>
-          <?php include '../../templates/modal.template.php'; ?>
+          <?php include_once '../../templates/banner.template.php'; ?>
+          <?php include_once '../../templates/presentation.template.php'; ?>
+          <?php include_once '../../templates/modal.template.php'; ?>
 
         </div>
         <!---Container Fluid-->
       </div>
       <!-- Footer -->
-      <?php include '../../templates/copyright.template.php'; ?>
+      <?php include_once '../../templates/copyright.template.php'; ?>
       <!-- Footer -->
     </div>
   </div>
 
-  <?php include "../../templates/footer.template.php" ?>
+  <?php include_once "../../templates/footer.template.php" ?>
   <script src="../../src/presentation.js"></script>
 </body>
 

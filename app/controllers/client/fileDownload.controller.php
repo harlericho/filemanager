@@ -1,10 +1,13 @@
 <?php
 // Download file
 require "../../models/admin/file.model.php";
+// session
+session_start();
 if (isset($_GET['id'])) {
   $file = new File();
   $result = $file->getFileId($_GET['id']);
-  $filePath = "../../uploads/client/" . $result['file_path'];
+  $user_id = $_SESSION["user_id"];
+  $filePath = "../../uploads/client/" . $user_id . "/" . $result['file_path'];
   if (file_exists($filePath)) {
     header('Content-Description: File Transfer');
     header('Content-Type: application/octet-stream');
